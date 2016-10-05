@@ -13,4 +13,6 @@ program hello
 
  1000 format ('Hello from', 1X, I4, 1X, 'of', 1X, I4)
 
+  call shmem_finalize ()
+
 end program hello
