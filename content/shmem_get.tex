@@ -6,21 +6,25 @@
 
 \begin{C11synopsis}
 void shmem_get(TYPE *dest, const TYPE *source, size_t nelems, int pe);
+void shmem_get(shmem_ctx_t ctx, TYPE *dest, const TYPE *source, size_t nelems, int pe);
 \end{C11synopsis}
 where \TYPE{} is one of the standard \ac{RMA} types specified by Table \ref{stdrmatypes}.
 
 \begin{Csynopsis}
 void shmem_<TYPENAME>_get(TYPE *dest, const TYPE *source, size_t nelems, int pe);
+void shmem_ctx_<TYPENAME>_get(shmem_ctx_t ctx, TYPE *dest, const TYPE *source, size_t nelems, int pe);
 \end{Csynopsis}
 where \TYPE{} is one of the standard \ac{RMA} types and has a corresponding \TYPENAME{} specified by Table \ref{stdrmatypes}.
 
 \begin{CsynopsisCol}
 void shmem_get<SIZE>(void *dest, const void *source, size_t  nelems, int pe);
+void shmem_ctx_get<SIZE>(shmem_ctx_t ctx, void *dest, const void *source, size_t  nelems, int pe);
 \end{CsynopsisCol}
 where \SIZE{} is one of \CONST{8, 16, 32, 64, 128}.
 
 \begin{CsynopsisCol}
 void shmem_getmem(void *dest, const void *source, size_t nelems, int pe);
+void shmem_ctx_getmem(shmem_ctx_t ctx, void *dest, const void *source, size_t nelems, int pe);
 \end{CsynopsisCol}
 
 \begin{Fsynopsis}
@@ -40,16 +44,18 @@ CALL SHMEM_REAL_GET(dest, source, nelems, pe)
 \end{Fsynopsis}
 
 \begin{apiarguments}
+    \apiargument{IN}{ctx}{Context on which to perform the operation.  When this
+        argument is not provided, \CONST{SHMEM\_CTX\_DEFAULT} is used.}
     \apiargument{OUT}{dest}{Local data object to be updated.}
     \apiargument{IN}{source}{Data object on the \ac{PE} identified by \VAR{pe}
         that contains the data to be copied.  This data object must be remotely
         accessible.}
     \apiargument{IN}{nelems}{Number of elements in the \dest{} and \source{}
-        arrays. \VAR{nelems} must be of type \VAR{size\_t} for \Cstd. If you are
+        arrays. \VAR{nelems} must be of type \VAR{size\_t} for \Cstd. When
         using \Fortran, it must be a constant, variable, or array element of default
         integer type.}
     \apiargument{IN}{pe}{\ac{PE}  number of the remote \ac{PE}.  \VAR{pe} must
-        be of type integer. If you are using \Fortran, it must be a constant,
+        be of type integer. When using \Fortran, it must be a constant,
         variable, or array element of default integer type.}
 \end{apiarguments}
 
@@ -94,7 +100,7 @@ CALL SHMEM_REAL_GET(dest, source, nelems, pe)
 \apinotes{
     See Section \ref{subsec:memory_model} for a definition of the term
     remotely accessible.
-    If you are using \Fortran, data types must be of default size.  For example, a real
+    When using \Fortran, data types must be of default size.  For example, a real
     variable must be declared as \CONST{REAL}, \CONST{REAL*4},  or
     \CONST{REAL(KIND=KIND(1.0))}.
 }

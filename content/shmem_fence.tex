@@ -7,6 +7,7 @@
 
 \begin{Csynopsis}
 void shmem_fence(void);
+void shmem_ctx_fence(shmem_ctx_t ctx);
 \end{Csynopsis}
 
 \begin{Fsynopsis}
@@ -14,13 +15,15 @@ CALL SHMEM_FENCE
 \end{Fsynopsis}
 
 \begin{apiarguments}
-\apiargument{None.}{}{}
+    \apiargument{IN}{ctx}{Context on which to perform the operation.  When this
+        argument is not provided, \CONST{SHMEM\_CTX\_DEFAULT} is used.}
 \end{apiarguments}
 
 \apidescription{
     This routine assures ordering of delivery of \PUT{}, \acp{AMO}, and memory store
     routines to symmetric data objects.  All \PUT{}, \acp{AMO}, and memory store
-    routines to symmetric data objects issued to a particular remote \ac{PE} prior
+    routines to symmetric data objects issued to a particular remote \ac{PE}
+    on the given context prior
     to the call to \FUNC{shmem\_fence} are guaranteed to be delivered before any
     subsequent \PUT{}, \acp{AMO}, and memory store routines to symmetric data
     objects to the same \ac{PE}. \FUNC{shmem\_fence} guarantees order of delivery,
@@ -35,7 +38,7 @@ CALL SHMEM_FENCE
     \FUNC{shmem\_fence} only provides per-\ac{PE} ordering guarantees and does not
     guarantee completion of delivery.  
     \FUNC{shmem\_fence} also does not have an effect on the ordering between memory 
-    accesses issued by the target PE. \FUNC{shmem\_wait}, \FUNC{shmem\_wait\_until},
+    accesses issued by the target PE. \FUNC{shmem\_wait}, \FUNC{shmem\_wait\_until}, \FUNC{shmem\_test},
     \FUNC{shmem\_barrier}, \FUNC{shmem\_barrier\_all} routines can be called by the target PE to guarantee 
     ordering of its memory accesses.
     There is a subtle difference between
@@ -44,7 +47,7 @@ CALL SHMEM_FENCE
     symmetric data objects which makes the updates visible to all other
     \acp{PE}. 
     
-    The \FUNC{shmem\_quiet} routine should be called if completion of PUT{},
+    The \FUNC{shmem\_quiet} routine should be called if completion of \PUT{},
     \acp{AMO}, and memory store routines to symmetric data objects is desired
     when multiple remote \acp{PE} are involved.
 }
