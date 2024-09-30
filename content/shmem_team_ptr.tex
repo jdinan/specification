@@ -1,5 +1,5 @@
 \apisummary{
-    Returns a local pointer to a symmetric data object on the specified \ac{PE} in the specified team.
+    Returns a local pointer to a symmetric data object on the specified target \ac{PE} in the specified team.
 }
 
 \begin{apidefinition}
@@ -18,7 +18,7 @@ void *@\FuncDecl{shmem\_team\_ptr}@(shmem_team_t team, const void *dest, int pe)
 
 \apidescription{
     \FUNC{shmem\_team\_ptr} returns an address that may be used to directly reference
-    \dest{} on the specified \ac{PE} in the specified team.  This address can be assigned to a
+    \dest{} on the specified target \ac{PE} in the specified team.  This address can be assigned to a
     pointer.  After that, ordinary loads and stores to \dest{} may be
     performed.  The address returned by \FUNC{shmem\_team\_ptr} is a local address to
     a remotely accessible data object.  Providing this address to an argument of

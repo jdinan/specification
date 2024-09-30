@@ -72,7 +72,7 @@ The ``mem'' interfaces (e.g., \FUNC{shmem\_putmem}) have no alignment
 requirements.
 
 The \FUNC{shmem\_ptr} and \FUNC{shmem\_team\_ptr} routines allow the application to query a {\em local
-address} to a remotely accessible data object at a specified \ac{PE}.  The
+address} to a remotely accessible data object at a specified target \ac{PE}.  The
 resulting pointer is valid for direct memory access; however, providing this
 address as an argument of an \openshmem routine that requires a symmetric
 address results in undefined behavior.

@@ -16,7 +16,7 @@ int @\FuncDecl{shmem\_pe\_accessible}@(int pe);
 
 \apidescription{
     \FUNC{shmem\_pe\_accessible} is a query routine that indicates whether a
-    specified \ac{PE} is accessible via \openshmem from the local \ac{PE}. The
+    specified target \ac{PE} is accessible via \openshmem from the local \ac{PE}. The
     \FUNC{shmem\_pe\_accessible} routine returns a value indicating whether the remote
     \ac{PE} is a process running from the same executable file as the local
     \ac{PE}, thereby indicating whether full support for symmetric data objects,
@@ -24,7 +24,7 @@ int @\FuncDecl{shmem\_pe\_accessible}@(int pe);
 }
 
 \apireturnvalues{
-    The return value is 1 if the specified \ac{PE} is a valid target \ac{PE}
+    The return value is 1 if the specified target \ac{PE} is a valid \ac{PE}
     for \openshmem routines; otherwise, it is 0.
 }
 

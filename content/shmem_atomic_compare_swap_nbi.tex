@@ -41,7 +41,7 @@ where \TYPE{} is one of the standard \ac{AMO} types and has a corresponding
 
 \apidescription{
     The nonblocking conditional swap routines conditionally update a \VAR{dest}
-    data object on the specified \ac{PE} as an atomic operation and fetches the prior contents of the
+    data object on the specified target \ac{PE} as an atomic operation and fetches the prior contents of the
     \VAR{dest} data object into the \VAR{fetch} local data object.
     This routine returns after initiating the operation. The operation
     is considered complete after a subsequent call to \FUNC{shmem\_quiet}. At the
