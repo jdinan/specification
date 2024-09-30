@@ -19,9 +19,9 @@ where they may be useful.\\
 \begin{tabular}{p{0.2\textwidth} | p{0.7\textwidth}}
 {}
 &
-Waits for a symmetric variable to be updated by a remote \ac{PE}. Should be
+Waits for a symmetric variable to be updated by a target \ac{PE}. Should be
 used when computation on the local \ac{PE} cannot proceed without the value that
-the remote \ac{PE} is to update. \tabularnewline
+the target \ac{PE} is to update. \tabularnewline
 \hline
 \end{tabular}
 
@@ -57,7 +57,7 @@ issued after the \FUNC{fence} call. \tabularnewline
 {}
 &
 {All \PUT{}, \ac{AMO}, store, and nonblocking \PUT{} and \GET{} routines on symmetric data issued by a
-local \ac{PE} to all  remote \acp{PE} are guaranteed to be completed and visible
+local \ac{PE} to all  target \acp{PE} are guaranteed to be completed and visible
 once quiet returns. This routine should be used when all remote writes issued by
 a local \ac{PE} need to be visible  to all other \acp{PE} before the local
 \ac{PE} proceeds. } \tabularnewline

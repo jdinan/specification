@@ -38,7 +38,7 @@ and has a corresponding \TYPENAME{} specified by Table~\ref{stdamotypes}.
     the default context.}
 \apiargument{OUT}{dest}{Symmetric address of the destination data object.
     The type of \dest{} should match that implied in the SYNOPSIS section.}
-\apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+\apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
     with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
@@ -50,7 +50,7 @@ and has a corresponding \TYPENAME{} specified by Table~\ref{stdamotypes}.
 }
 
 \apireturnvalues{
-    The contents that had been at the \dest{} address on the remote \ac{PE} prior to
+    The contents that had been at the \dest{} address on the target \ac{PE} prior to
     the increment.  The data type of the return value is the same as the \dest.
 }
 

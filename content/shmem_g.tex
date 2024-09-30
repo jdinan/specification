@@ -1,5 +1,5 @@
 \apisummary{
-    Copies one data item from a remote \ac{PE}
+    Copies one data item from a target \ac{PE}
 }
 
 \begin{apidefinition}
@@ -22,7 +22,7 @@ where \TYPE{} is one of the standard \ac{RMA} types and has a corresponding \TYP
     the default context.}
   \apiargument{IN}{source}{Symmetric address of the source data object.
     The type of \source{} should match that implied in the SYNOPSIS section.}
-  \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} on which \VAR{source} resides 
+  \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} on which \VAR{source} resides 
     relative to the team associated with the given \VAR{ctx} when provided, or the 
     default context otherwise.}
 \end{apiarguments}
