@@ -37,9 +37,9 @@ where \TYPE{} is one of \{\CTYPE{float}, \CTYPE{double}, \CTYPE{int},
     the default context.}
   \apiargument{OUT}{dest}{Symmetric address of the destination data object.
     The type of \dest{} should match that implied in the SYNOPSIS section.}
-  \apiargument{IN}{value}{The value to be atomically written to the remote \ac{PE}.
+  \apiargument{IN}{value}{The value to be atomically written to the target \ac{PE}.
     The type of \VAR{value} should match that implied in the SYNOPSIS section.}
-  \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+  \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
     with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
@@ -50,7 +50,7 @@ where \TYPE{} is one of \{\CTYPE{float}, \CTYPE{double}, \CTYPE{int},
 }
 
 \apireturnvalues{
-       The content that had been at the \dest{} address on the remote \ac{PE}
+       The content that had been at the \dest{} address on the target \ac{PE}
        prior to the swap is returned.
 }
 

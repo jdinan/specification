@@ -40,7 +40,7 @@ where \TYPE{} is one of \{\CTYPE{float}, \CTYPE{double}, \CTYPE{int},
     the default context.}
   \apiargument{IN}{source}{Symmetric address of the source data object.
     The type of \source{} should match that implied in the SYNOPSIS section.}
-  \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} on which \VAR{source} resides 
+  \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} on which \VAR{source} resides
     relative to the team associated with the given \VAR{ctx} when provided, or the 
     default context otherwise.}
 \end{apiarguments}
@@ -51,7 +51,7 @@ where \TYPE{} is one of \{\CTYPE{float}, \CTYPE{double}, \CTYPE{int},
 }
 
 \apireturnvalues{
-    The contents at the \VAR{source} address on the remote \ac{PE}.
+    The contents at the \VAR{source} address on the target \ac{PE}.
     The data type of the return value is the same as the type of
     the remote data object.
 }

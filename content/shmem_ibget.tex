@@ -42,13 +42,13 @@ where \SIZE{} is one of \CONST{8, 16, 32, 64, 128}.
         arrays.}
     \apiargument{IN}{nblocks}{Number of blocks to be copied from the \source{} array
         to the \dest{} array.}
-    \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+    \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
       with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
 \apidescription{
     The \FUNC{shmem\_ibget} routines provide a method for copying strided data blocks from
-    a symmetric array from a specified remote \ac{PE} to strided locations on a
+    a symmetric array from a specified target \ac{PE} to strided locations on a
     local array.  The routines return when the data has been copied into the local
     \VAR{dest} array.
 }

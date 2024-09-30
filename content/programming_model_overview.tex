@@ -5,7 +5,7 @@ allows communication and synchronization operations on both private (local to
 the \ac{PE} initiating the operation) and remotely accessible data objects. The key
 feature of \openshmem is that data transfer operations are
 \emph{one-sided} in nature. This means that a local \ac{PE} executing
-a data transfer routine does not require the participation of the remote \ac{PE}
+a data transfer routine does not require the participation of the target \ac{PE}
 to complete the routine. This allows for overlap between communication and
 computation to hide data transfer latencies, which makes  \openshmem ideal for
 unstructured, small-to-medium-sized data communication patterns. The \openshmem
@@ -35,10 +35,10 @@ An overview of the \openshmem routines is described below:
    where the \acp{PE} are either single or multithreaded.
   \item \OPR{Query}: The local \ac{PE} may get the number of \acp{PE} running
       the same program and its unique integer identifier.
-  \item \OPR{Accessibility}: The local \ac{PE} can find out if a remote \ac{PE} is
+  \item \OPR{Accessibility}: The local \ac{PE} can find out if a target \ac{PE} is
       executing the same binary, or if a particular symmetric data object can be
-      accessed by a remote \ac{PE}, or may obtain a pointer to a symmetric data
-      object on the specified remote \ac{PE} on shared memory systems.
+      accessed by a target \ac{PE}, or may obtain a pointer to a symmetric data
+      object on the specified target \ac{PE} on shared memory systems.
 \end{enumerate}
 
 \item \textbf{Symmetric Data Object Management}
@@ -65,7 +65,7 @@ An overview of the \openshmem routines is described below:
     \acp{PE}. Teams are involved in both collective and point-to-point
     communication operations. Collective communication operations are performed
     on all \acp{PE} in a valid team and point-to-point communication operations
-    are performed between a local and remote \ac{PE} with team-based \ac{PE}
+    are performed between a local and target \ac{PE} with team-based \ac{PE}
     numbering through team-based contexts.
 \end{enumerate}
 
@@ -82,43 +82,43 @@ An overview of the \openshmem routines is described below:
 \item \textbf{\acfp{AMO}}
 \begin{enumerate}
   \item \OPR{Fetch}: The \ac{PE} initiating the fetch returns the value of the
-      symmetric data object on the remote \ac{PE}.
+      symmetric data object on the target \ac{PE}.
   \item \OPR{Set}: The \ac{PE} initiating the set copies a new value to the
-      symmetric data object on the remote \ac{PE}.
+      symmetric data object on the target \ac{PE}.
   \item \OPR{Swap}: The \ac{PE} initiating the swap copies a new value to the
-      symmetric data object on the remote \ac{PE} and returns the old value.
+      symmetric data object on the target \ac{PE} and returns the old value.
   \item \OPR{Increment}: The \ac{PE} initiating the increment adds 1 to the
-      symmetric data object on the remote \ac{PE}.
+      symmetric data object on the target \ac{PE}.
   \item \OPR{Add}: The \ac{PE} initiating the add specifies the value to be added
-      to the symmetric data object on the remote \ac{PE}.
+      to the symmetric data object on the target \ac{PE}.
   \item \OPR{Bitwise Operations}: The \ac{PE} initiating the bitwise
       operation specifies the operand value to the bitwise operation to be
-      performed on the symmetric data object on the remote \ac{PE}.
+      performed on the symmetric data object on the target \ac{PE}.
   \item \OPR{Compare and Swap}: The \ac{PE} initiating the compare and swap
       conditionally copies a new value to the symmetric data object on the
-      remote \ac{PE} and returns the old value.
+      target \ac{PE} and returns the old value.
   \item \OPR{Fetch and Increment}: The \ac{PE} initiating the increment adds 1
-      to the symmetric data object on the remote \ac{PE} and returns the old
+      to the symmetric data object on the target \ac{PE} and returns the old
       value.
   \item \OPR{Fetch and Add}: The \ac{PE} initiating the add specifies the value to
-      be added to the symmetric data object on the remote \ac{PE} and returns
+      be added to the symmetric data object on the target \ac{PE} and returns
       the old value.
   \item \OPR{Fetch and Bitwise Operations}: The \ac{PE} initiating the bitwise
       operation specifies the operand value to the bitwise operation to be
-      performed on the symmetric data object on the remote \ac{PE}
+      performed on the symmetric data object on the target \ac{PE}
       and returns the old value.
 \end{enumerate}
 
 \item \textbf{Signaling Operations}
 \begin{enumerate}
   \item \OPR{Put Signal}: The local \ac{PE} specifies the \source{} data object
-      to be copied to the symmetric data object on the remote \ac{PE} and
-      another symmetric data object on the remote \ac{PE} is subsequently
+      to be copied to the symmetric data object on the target \ac{PE} and
+      another symmetric data object on the target \ac{PE} is subsequently
       updated to signal completion.
   \item \OPR{Signal Add}: The local \ac{PE} specifies a value to be added to
-      the symmetric data object on the remote \ac{PE}.
+      the symmetric data object on the target \ac{PE}.
   \item \OPR{Signal Set}: The local \ac{PE} specifies a value to be copied to
-      the symmetric data object on the remote \ac{PE}.
+      the symmetric data object on the target \ac{PE}.
   \item \OPR{Signal Fetch}: The local \ac{PE} returns the value of a local data
       object.
 \end{enumerate}

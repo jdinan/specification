@@ -41,7 +41,7 @@ and has a corresponding \TYPENAME{} specified by Table~\ref{stdamotypes}.
     SYNOPSIS section.}
 \apiargument{IN}{value}{The operand to the atomic fetch-and-add operation.  The
     type of \VAR{value} should match that implied in the SYNOPSIS section.}
-\apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+\apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
      with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
@@ -55,7 +55,7 @@ and has a corresponding \TYPENAME{} specified by Table~\ref{stdamotypes}.
 }
 
 \apireturnvalues{
-    The contents that had been at the \VAR{dest} address on the remote \ac{PE}
+    The contents that had been at the \VAR{dest} address on the target \ac{PE}
     prior to the atomic addition operation.  The data type of the return value is
     the same as the \VAR{dest}.
 }

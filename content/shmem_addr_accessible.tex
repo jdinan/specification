@@ -1,6 +1,6 @@
 \apisummary{
     Determines whether an address is accessible via \openshmem data transfer
-    routines from the specified remote \ac{PE}.
+    routines from the specified target \ac{PE}.
 }
 
 \begin{apidefinition}
@@ -11,7 +11,7 @@ int @\FuncDecl{shmem\_addr\_accessible}@(const void *addr, int pe);
 
 \begin{apiarguments}
     \apiargument{IN}{addr}{Local address of data object to query.}
-    \apiargument{IN}{pe}{Integer id of a remote \ac{PE}.}
+    \apiargument{IN}{pe}{Integer id of a target \ac{PE}.}
 \end{apiarguments}
 
 \apidescription{
@@ -20,7 +20,7 @@ int @\FuncDecl{shmem\_addr\_accessible}@(const void *addr, int pe);
     specified \ac{PE} via \openshmem routines.
 
     This routine verifies that the data object is symmetric and accessible with
-    respect to a remote \ac{PE} via \openshmem data transfer routines.  The
+    respect to a target \ac{PE} via \openshmem data transfer routines.  The
     specified address \VAR{addr} is the local address of the data object on the
     local \ac{PE}.
 }
@@ -28,7 +28,7 @@ int @\FuncDecl{shmem\_addr\_accessible}@(const void *addr, int pe);
 \apireturnvalues{
     The return value is \CONST{1} if the local address \VAR{addr} is also a symmetric
     address and the given data object is accessible via \openshmem routines on
-    the specified remote \ac{PE}; otherwise, it is \CONST{0}.
+    the specified target \ac{PE}; otherwise, it is \CONST{0}.
 }
 
 \apinotes{

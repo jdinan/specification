@@ -34,7 +34,7 @@ void @\FuncDecl{shmem\_ctx\_putmem\_signal\_nbi}@(shmem_ctx_t ctx, void *dest, c
     perform the operation. When this argument is not provided, the operation is
     performed on the default context.}
     \apiargument{OUT}{dest}{Symmetric address of the data object to be updated
-    on the remote \ac{PE}.
+    on the target \ac{PE}.
     The type of \dest{} should match that implied in the SYNOPSIS section.}
     \apiargument{IN}{source}{Local address of data object containing the data
     to be copied.
@@ -43,12 +43,12 @@ void @\FuncDecl{shmem\_ctx\_putmem\_signal\_nbi}@(shmem_ctx_t ctx, void *dest, c
     arrays. For \FUNC{shmem\_putmem\_signal\_nbi} and
     \FUNC{shmem\_ctx\_putmem\_signal\_nbi}, elements are bytes.}
     \apiargument{OUT}{sig\_addr}{Symmetric address of the signal data object to
-    be updated on the remote \ac{PE} as a signal.}
+    be updated on the target \ac{PE} as a signal.}
     \apiargument{IN}{signal}{Unsigned 64-bit value that is used for updating the
     remote \VAR{sig\_addr} signal data object.}
     \apiargument{IN}{sig\_op}{Signal operator that represents the type of update
     to be performed on the remote \VAR{sig\_addr} signal data object.}
-    \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+    \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
       with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
@@ -63,9 +63,9 @@ void @\FuncDecl{shmem\_ctx\_putmem\_signal\_nbi}@(shmem_ctx_t ctx, void *dest, c
     on the local \ac{PE} and delivered into the \dest{} array on the destination
     \ac{PE}.
 
-    The delivery of \VAR{signal} flag on the remote \ac{PE} indicates only the
+    The delivery of \VAR{signal} flag on the target \ac{PE} indicates only the
     delivery of its corresponding \dest{} data words into the data object on the
-    remote \ac{PE}. Furthermore, two successive nonblocking \OPR{put-with-signal}
+    target \ac{PE}. Furthermore, two successive nonblocking \OPR{put-with-signal}
     routines, or a nonblocking \OPR{put-with-signal} routine with another data
     transfer may deliver data out of order unless a call to \FUNC{shmem\_fence}
     is introduced between the two calls.

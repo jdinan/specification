@@ -43,9 +43,9 @@ and has a corresponding \TYPENAME{} specified by Table~\ref{stdamotypes}.
         unchanged.  In either case, the old value of the remote \VAR{dest} is
         returned as the routine return value. \VAR{cond} must be of the same data
         type as \VAR{dest}.}
-    \apiargument{IN}{value}{The value to be atomically written to the remote \ac{PE}.
+    \apiargument{IN}{value}{The value to be atomically written to the target \ac{PE}.
         The type of \VAR{value} should match that implied in the SYNOPSIS section.}
-    \apiargument{IN}{pe}{\ac{PE} number of the remote \ac{PE} relative to the team associated
+    \apiargument{IN}{pe}{\ac{PE} number of the target \ac{PE} relative to the team associated
       with the given \VAR{ctx} when provided, or the default context otherwise.}
 \end{apiarguments}
 
